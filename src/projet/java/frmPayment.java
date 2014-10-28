@@ -20,21 +20,6 @@ public class frmPayment extends JFrame {
 	private JTextField txtNumCB;
 	private JTextField txtCryptogram;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					frmPayment frame = new frmPayment();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

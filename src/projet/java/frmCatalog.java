@@ -30,21 +30,6 @@ public class frmCatalog extends JFrame {
 	private JTable jtabCatalog;
 	private JTable jtabCart;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					frmCatalog frame = new frmCatalog();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
