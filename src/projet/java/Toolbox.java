@@ -13,9 +13,9 @@ public class Toolbox {
 	/**
 	 * Méthode qui hash une String en SHA-1
 	 * @param key
-	 * @return
+	 * @return 
 	 */
-	public static String hashSha1(String key) 
+	public static String sha1(String key) 
     { 
  
      byte[] uniqueKey = key.getBytes(); 

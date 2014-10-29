@@ -37,7 +37,7 @@ public class UserDaoTest {
 	@Test
 	public void ToolboxTest() throws SQLException {
 		assertEquals("e24202824e82e7d9df6e9287d0e9e567ae0c4109",
-				Toolbox.hashSha1("bubu"));
+				Toolbox.sha1("bubu"));
 
 	}
 
@@ -47,6 +47,8 @@ public class UserDaoTest {
 		user1 = userDAO.getById(1);
 		assertEquals(1, this.user1.getId());
 		assertEquals("Lyon", this.user1.getVille());
+		
+		// update
 		
 		
 

@@ -25,7 +25,6 @@ public class UserDAO
 	}
 	
 	
-	
 	public ArrayList<User> getAll() throws SQLException
 	{
 		ArrayList<User> alUsers = new ArrayList<User>();
@@ -61,12 +60,6 @@ public class UserDAO
 		return alUsers;
 	}
 	
-	
-	
-	
-	
-	
-
 	public User getById(int id) throws SQLException
 	{
 		String strQuery = "SELECT * FROM User WHERE id_user=?";
@@ -134,20 +127,22 @@ public class UserDAO
 		return user;
 	}
 	
-	
-	
-	
-	
-	public void update(int id, String nom, String prenom, String ecurie) throws SQLException
+	public void update(User user) throws SQLException
 	{
-		ResultSet resultSet = statement.executeQuery("SELECT * FROM PILOTE WHERE id_user=" + id);
+		ResultSet resultSet = statement.executeQuery("SELECT * FROM User WHERE id_user=" + user.getId());
 		if (resultSet.next())
 		{
-			PreparedStatement preparedStatement = cnn.prepareStatement("UPDATE eludique.User SET nom = '?', prenom ='?', ecurie='?' WHERE id='?'");
-			preparedStatement.setString(1, nom);
-			preparedStatement.setString(2, prenom);
-			preparedStatement.setString(3, ecurie);
-			preparedStatement.setInt(4, id);
+			PreparedStatement preparedStatement = cnn.prepareStatement("UPDATE eludique.User SET email = '?', password ='?', nom='?', prenom='?', sexe='?', numtel='?', admin='?', adresse='?', ville='?',code_postal WHERE id='?'");
+			preparedStatement.setString(1, user.getEmail());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setString(3, user.getNom());
+			preparedStatement.setString(4, user.getPrenom());
+			preparedStatement.setString(5, user.getSexe());
+			preparedStatement.setString(6, user.getNumtel());
+			preparedStatement.setBoolean(7,user.isAdmin());
+			preparedStatement.setString(8, user.getAdresse());
+			preparedStatement.setString(9, user.getVille());
+			preparedStatement.setString(10, user.getCodePostal());
 			preparedStatement.execute();
 		} else
 		{
@@ -173,7 +168,7 @@ public class UserDAO
 
 	}
 
-	public void remove(String email) throws SQLException
+	public void removeByEmail(String email) throws SQLException
 	{
 		PreparedStatement preparedStatement = cnn.prepareStatement("DELETE FROM eludique.User WHERE email = ? ; ");
 		preparedStatement.setString(1, email);
@@ -181,6 +176,4 @@ public class UserDAO
 
 	}
 	
-	
-
 }
